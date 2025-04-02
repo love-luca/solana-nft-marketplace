@@ -1,50 +1,76 @@
-## NFT Marketplace with Rust on Solana
+# Solana NFT Marketplace
 
-### Compile and Deploy Contracts
-- make sure you have solana installed
-- make sure you have rust installed
-- install phantom wallet on the browser or any from the list
-- make sure u have a solana wallet with SOL token (devnet)
-- Config to devnet
+## Introduction
+Welcome to the **Solana NFT Marketplace**, a decentralized platform for buying, selling, and trading **NFTs (Non-Fungible Tokens)** built on the **Solana blockchain**. Designed for **fast transactions, low fees, and seamless user experience**, our marketplace empowers creators and collectors alike.
 
-```
-solana config set --url devnet
-```
-- Create wallet
-```
-solana-keygen new
-```
-- Add test token to the wallet
+## Features
+- **Fast & Low-Cost Transactions**: Powered by Solana's high throughput and minimal fees.
+- **On-Chain Royalties**: Supports Metaplex standard royalties for NFT creators.
+- **Auction & Fixed-Price Listings**: List NFTs at a fixed price or auction them to the highest bidder.
+- **Wallet Integration**: Compatible with Phantom, Solflare, and other Solana wallets.
+- **Verified Collections**: Ensure authenticity with blue-check verification.
+- **Multi-Currency Support**: Accept SOL, USDC, and SPL tokens.
+- **User-Friendly UI**: Designed for seamless navigation and trading experience.
 
-```
-solana airdrop 5
-```
-navigate to the rust folder
-```
-cd program
-```
-build the project
-```
-cargo build-bpf
-```
-- After the build step completes, deploy the program to devnet
-```
-solana program deploy ./path/to/the_program.so -u devnet
-```
-- Clear client/packages/web/.env variables to create of a fresh new store
+## Tech Stack
+- **Solana Blockchain**
+- **Rust (Smart Contracts - Anchor Framework)**
+- **Metaplex Protocol**
+- **TypeScript & React (Frontend)**
+- **Phantom, Solflare, and Sollet Wallets**
+- **IPFS & Arweave for NFT Metadata Storage**
 
-- start the app
-```
-cd ../client/packages
-yarn && yarn bootstrap
-yarn start
+##  Smart Contract Architecture
+### 1️⃣ **NFT Listing Contract**
+- Enables users to list NFTs for sale at a fixed price.
+- Enforces **creator royalties** and **transaction security**.
+
+### 2️⃣ **Auction Contract**
+- Supports **English Auctions** (highest bid wins).
+- Automatic **bid management** and **settlement processing**.
+
+### 3️⃣ **Trade Execution Contract**
+- Handles **instant NFT purchases**.
+- Ensures **secure and atomic transactions** using Solana's **Sealevel runtime**.
+
+## 🔧 Installation & Deployment
+### **1. Install Dependencies**
+```sh
+npm install -g @project-serum/anchor
 ```
 
-### Open the site in a browser 
+### **2. Clone Repository**
+```sh
+git clone https://github.com/love-luca/solana-nft-marketplace.git
+cd solana-nft-marketplace
+```
 
+### **3. Build & Deploy**
+```sh
+anchor build
+anchor deploy
 ```
-http://localhost:3000
+
+## 📖 Usage Guide
+### **1. List an NFT for Sale**
+```sh
+ts-node scripts/listNFT.ts --nftAddress "NFT_ADDRESS" --price 10
 ```
-- Now connect wallet
-- Create NFT
-- Sell NFT
+
+### **2. Place a Bid on an Auction**
+```sh
+ts-node scripts/placeBid.ts --auctionId "AUCTION_ID" --bidAmount 20
+```
+
+### **3. Buy an NFT Instantly**
+```sh
+ts-node scripts/buyNFT.ts --nftAddress "NFT_ADDRESS"
+```
+
+## Socials & Contact
+- Twitter:  [@defai_maxi](https://twitter.com/defai_maxi)
+- Telegram: [Rhett](https://t.me/rhettjel)
+
+---
+
+
